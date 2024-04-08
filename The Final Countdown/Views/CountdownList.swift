@@ -12,11 +12,25 @@ struct CountdownList: View {
         
     var body: some View {
         NavigationStack {
-            List(timers.timers) { timer in
+            List(timers.countdownTimers) { timer in
                 NavigationLink {
                     EditCountdown(timers: timers, timer: timer)
                 } label: {
-                    Text(timer.title)
+                    VStack(alignment: .leading) {
+                        Text(timer.title)
+                        Text(timer.end.formatted())
+                    }
+                }
+            }
+            
+            List(timers.countdownTimers) { countdownTimer in
+                NavigationLink {
+                    CountdownDetail(countdownTimer: countdownTimer)
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(countdownTimer.title)
+                        Text(countdownTimer.end.formatted())
+                    }
                 }
             }
         }
@@ -25,7 +39,7 @@ struct CountdownList: View {
 
 #Preview {
     let timers = CountdownTimers()
-    timers.timers = [
+    timers.countdownTimers = [
         CountdownTimer(id: 0, title: "First Countdown Timer"),
         CountdownTimer(id: 1, title: "Another One"),
         CountdownTimer(id: 2, title: "A Third"),

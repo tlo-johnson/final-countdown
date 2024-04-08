@@ -10,9 +10,9 @@ import SwiftUI
 struct CountdownDetail: View {
     @State var currentDate = Date()
 
-    var end: Date
+    var countdownTimer: CountdownTimer
 
-    var diffComponents: DateComponents { Calendar.current.dateComponents([.year, .day, .hour, .minute, .second], from: currentDate, to: end)
+    var diffComponents: DateComponents { Calendar.current.dateComponents([.year, .day, .hour, .minute, .second], from: currentDate, to: countdownTimer.end)
     }
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -56,5 +56,5 @@ struct CountdownDetail: View {
     let dateFormatter = ISO8601DateFormatter()
     let date = dateFormatter.date(from:isoDate)!
 
-    return CountdownDetail(end: date)
+    return CountdownDetail(countdownTimer: CountdownTimer(id: 0, title: "My sample title"))
 }

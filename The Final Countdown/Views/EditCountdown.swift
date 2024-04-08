@@ -12,7 +12,7 @@ struct EditCountdown: View {
     
     var timer: CountdownTimer
     
-    var countdownIndex: Int { timers.timers.firstIndex { $0.id == timer.id }!}
+    var countdownIndex: Int { timers.countdownTimers.firstIndex { $0.id == timer.id }!}
     
     var body: some View {
         @Bindable var timers = timers
@@ -21,9 +21,9 @@ struct EditCountdown: View {
             HStack {
                 Text("Title")
                 Spacer()
-                TextField("", text: $timers.timers[countdownIndex].title)
+                TextField("", text: $timers.countdownTimers[countdownIndex].title)
             }
-            DatePicker("End Date:", selection: $timers.timers[countdownIndex].end)
+            DatePicker("End Date:", selection: $timers.countdownTimers[countdownIndex].end)
         }
         .padding()
     }
@@ -32,7 +32,7 @@ struct EditCountdown: View {
 #Preview {
     var timers = CountdownTimers()
     var timer = CountdownTimer(id: 0, title: "It's the final countdown")
-    timers.timers.append(timer)
+    timers.countdownTimers.append(timer)
     
     return EditCountdown(timers: timers, timer: timer)
 }

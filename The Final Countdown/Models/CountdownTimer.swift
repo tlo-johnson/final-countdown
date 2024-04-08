@@ -20,5 +20,5 @@ struct CountdownTimer: Identifiable {
 
 @Observable
 class CountdownTimers: ObservableObject {
-    var timers: [CountdownTimer] = []
+    var countdownTimers: [CountdownTimer] = []
 }
