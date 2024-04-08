@@ -11,7 +11,10 @@
 		F463418F2BC1B7130011DB7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463418E2BC1B7130011DB7A /* ContentView.swift */; };
 		F46341912BC1B7140011DB7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46341902BC1B7140011DB7A /* Assets.xcassets */; };
 		F46341942BC1B7140011DB7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46341932BC1B7140011DB7A /* Preview Assets.xcassets */; };
-		F4C647592BC228C100D9A700 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C647582BC228C100D9A700 /* Countdown.swift */; };
+		F4C647592BC228C100D9A700 /* CountdownDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C647582BC228C100D9A700 /* CountdownDetail.swift */; };
+		F4C6475B2BC2317900D9A700 /* EditCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6475A2BC2317900D9A700 /* EditCountdown.swift */; };
+		F4C6475D2BC417A800D9A700 /* CountdownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6475C2BC417A800D9A700 /* CountdownList.swift */; };
+		F4C647602BC417DB00D9A700 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6475F2BC417DB00D9A700 /* CountdownTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +23,10 @@
 		F463418E2BC1B7130011DB7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F46341902BC1B7140011DB7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F46341932BC1B7140011DB7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F4C647582BC228C100D9A700 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
+		F4C647582BC228C100D9A700 /* CountdownDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownDetail.swift; sourceTree = "<group>"; };
+		F4C6475A2BC2317900D9A700 /* EditCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountdown.swift; sourceTree = "<group>"; };
+		F4C6475C2BC417A800D9A700 /* CountdownList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownList.swift; sourceTree = "<group>"; };
+		F4C6475F2BC417DB00D9A700 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 		F463418B2BC1B7130011DB7A /* The Final Countdown */ = {
 			isa = PBXGroup;
 			children = (
+				F4C6475E2BC417C400D9A700 /* Models */,
 				F4C647572BC2289E00D9A700 /* Views */,
 				F463418C2BC1B7130011DB7A /* The_Final_CountdownApp.swift */,
 				F463418E2BC1B7130011DB7A /* ContentView.swift */,
@@ -73,9 +80,19 @@
 		F4C647572BC2289E00D9A700 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F4C647582BC228C100D9A700 /* Countdown.swift */,
+				F4C647582BC228C100D9A700 /* CountdownDetail.swift */,
+				F4C6475A2BC2317900D9A700 /* EditCountdown.swift */,
+				F4C6475C2BC417A800D9A700 /* CountdownList.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F4C6475E2BC417C400D9A700 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4C6475F2BC417DB00D9A700 /* CountdownTimer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F463418F2BC1B7130011DB7A /* ContentView.swift in Sources */,
+				F4C6475D2BC417A800D9A700 /* CountdownList.swift in Sources */,
+				F4C6475B2BC2317900D9A700 /* EditCountdown.swift in Sources */,
 				F463418D2BC1B7130011DB7A /* The_Final_CountdownApp.swift in Sources */,
-				F4C647592BC228C100D9A700 /* Countdown.swift in Sources */,
+				F4C647592BC228C100D9A700 /* CountdownDetail.swift in Sources */,
+				F4C647602BC417DB00D9A700 /* CountdownTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Countdown: View {
+struct CountdownDetail: View {
     @State var currentDate = Date()
 
     var end: Date
@@ -52,9 +52,9 @@ struct Countdown: View {
 }
 
 #Preview {
-    let isoDate = "2024-05-15T00:00:00+0600"
+    let isoDate = "2024-05-14T00:00:00-0600"
     let dateFormatter = ISO8601DateFormatter()
     let date = dateFormatter.date(from:isoDate)!
 
-    return Countdown(end: date)
+    return CountdownDetail(end: date)
 }
