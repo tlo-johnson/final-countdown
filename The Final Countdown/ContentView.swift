@@ -6,21 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    var timers: CountdownTimers = CountdownTimers()
-    
-    var body: some View {
-        CountdownList(timers: timers)
+        var body: some View {
+        CountdownList()
     }
 }
 
 #Preview {
-    var timers = CountdownTimers()
-    timers.countdownTimers = [
-        CountdownTimer(id: 0, title: "First Countdown Timer"),
-        CountdownTimer(id: 1, title: "Another One"),
-        CountdownTimer(id: 2, title: "A Third"),
-    ]
-    return ContentView(timers: timers)
+    return ContentView()
+        .modelContainer(for: CountdownTimer.self, inMemory: true)
 }

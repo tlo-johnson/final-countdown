@@ -8,31 +8,29 @@
 import SwiftUI
 
 struct EditCountdown: View {
-    var timers: CountdownTimers
+    @Environment(\.modelContext) private var context
+    @State var countdown: CountdownTimer
     
-    var timer: CountdownTimer
-    
-    var countdownIndex: Int { timers.countdownTimers.firstIndex { $0.id == timer.id }!}
-    
+    func saveChanges() {
+        context.insert(countdown)
+    }
+
     var body: some View {
-        @Bindable var timers = timers
-        
         VStack {
             HStack {
                 Text("Title")
                 Spacer()
-                TextField("", text: $timers.countdownTimers[countdownIndex].title)
+                TextField("", text: $countdown.title)
             }
-            DatePicker("End Date:", selection: $timers.countdownTimers[countdownIndex].end)
+            DatePicker("End Date:", selection: $countdown.end)
+            Button("Save", action: saveChanges)
         }
         .padding()
     }
 }
 
 #Preview {
-    var timers = CountdownTimers()
-    var timer = CountdownTimer(id: 0, title: "It's the final countdown")
-    timers.countdownTimers.append(timer)
-    
-    return EditCountdown(timers: timers, timer: timer)
+    var countdown = CountdownTimer(title: "Your New Timer")
+    return EditCountdown(countdown: countdown)
+        .modelContainer(for: CountdownTimer.self, inMemory: true)
 }

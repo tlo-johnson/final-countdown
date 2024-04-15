@@ -56,5 +56,5 @@ struct CountdownDetail: View {
     let dateFormatter = ISO8601DateFormatter()
     let date = dateFormatter.date(from:isoDate)!
 
-    return CountdownDetail(countdownTimer: CountdownTimer(id: 0, title: "My sample title"))
+    return CountdownDetail(countdownTimer: CountdownTimer(title: "My sample title"))
 }

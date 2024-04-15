@@ -6,19 +6,14 @@
 //
 
 import Foundation
+import SwiftData
 
-struct CountdownTimer: Identifiable {
-    var id: Int
+@Model
+class CountdownTimer {
     var title: String
     var end = Date()
     
-    init(id: Int, title: String) {
-        self.id = id
+    init(title: String) {
         self.title = title
     }
-}
-
-@Observable
-class CountdownTimers: ObservableObject {
-    var countdownTimers: [CountdownTimer] = []
 }

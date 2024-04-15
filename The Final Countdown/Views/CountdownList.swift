@@ -6,24 +6,34 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CountdownList: View {
-    @StateObject var timers: CountdownTimers
+    @Query private var countdownTimers: [CountdownTimer]
+    @Environment(\.modelContext) private var context
         
     var body: some View {
         NavigationStack {
-            List(timers.countdownTimers) { timer in
+            List(countdownTimers, id: \.title) { countdown in
                 NavigationLink {
-                    EditCountdown(timers: timers, timer: timer)
+                    EditCountdown(countdown: countdown)
                 } label: {
                     VStack(alignment: .leading) {
-                        Text(timer.title)
-                        Text(timer.end.formatted())
+                        Text(countdown.title)
+                        Text(countdown.end.formatted())
                     }
                 }
             }
+            .navigationTitle("Countdown Timers")
+            .toolbar {
+                NavigationLink {
+                    EditCountdown(countdown: CountdownTimer(title: ""))
+                } label: {
+                    Text("New Countdown")
+                }
+            }
             
-            List(timers.countdownTimers) { countdownTimer in
+            List(countdownTimers, id: \.title) { countdownTimer in
                 NavigationLink {
                     CountdownDetail(countdownTimer: countdownTimer)
                 } label: {
@@ -34,15 +44,13 @@ struct CountdownList: View {
                 }
             }
         }
+        .task {
+            context.insert(CountdownTimer(title: "The final countdown"))
+        }
     }
 }
 
 #Preview {
-    let timers = CountdownTimers()
-    timers.countdownTimers = [
-        CountdownTimer(id: 0, title: "First Countdown Timer"),
-        CountdownTimer(id: 1, title: "Another One"),
-        CountdownTimer(id: 2, title: "A Third"),
-    ]
-    return CountdownList(timers: timers)
+    CountdownList()
+        .modelContainer(for: CountdownTimer.self, inMemory: true)
 }
