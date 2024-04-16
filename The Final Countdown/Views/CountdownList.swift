@@ -11,20 +11,30 @@ import SwiftData
 struct CountdownList: View {
     @Query private var countdownTimers: [CountdownTimer]
     @Environment(\.modelContext) private var context
-        
+    
     var body: some View {
         NavigationStack {
-            List(countdownTimers, id: \.title) { countdown in
-                NavigationLink {
-                    EditCountdown(countdown: countdown)
-                } label: {
-                    VStack(alignment: .leading) {
-                        Text(countdown.title)
-                        Text(countdown.end.formatted())
+            VStack(alignment: .leading) {
+                ForEach(countdownTimers, id: \.title) { countdown in
+                    NavigationLink {
+                        EditCountdown(countdown: countdown)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(countdown.title)
+                            Text(countdown.end.formatted())
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
+                
+                Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .background(Color.black)
+            .foregroundColor(.white)
             .navigationTitle("Countdown Timers")
+            .navigationTitleColor(Color.white)
             .toolbar {
                 NavigationLink {
                     EditCountdown(countdown: CountdownTimer(title: ""))
@@ -32,20 +42,11 @@ struct CountdownList: View {
                     Text("New Countdown")
                 }
             }
-            
-            List(countdownTimers, id: \.title) { countdownTimer in
-                NavigationLink {
-                    CountdownDetail(countdownTimer: countdownTimer)
-                } label: {
-                    VStack(alignment: .leading) {
-                        Text(countdownTimer.title)
-                        Text(countdownTimer.end.formatted())
-                    }
-                }
-            }
         }
         .task {
             context.insert(CountdownTimer(title: "The final countdown"))
+            context.insert(CountdownTimer(title: "Another final countdown"))
+            context.insert(CountdownTimer(title: "Yes the final countdown"))
         }
     }
 }

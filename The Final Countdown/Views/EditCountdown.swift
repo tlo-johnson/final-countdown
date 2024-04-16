@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EditCountdown: View {
     @Environment(\.modelContext) private var context
@@ -20,17 +21,26 @@ struct EditCountdown: View {
             HStack {
                 Text("Title")
                 Spacer()
-                TextField("", text: $countdown.title)
+                TextField("", text: $countdown.title, prompt: Text("It's the final countdown"))
+                    .multilineTextAlignment(.trailing)
             }
+            .padding(.bottom, 20)
+            
             DatePicker("End Date:", selection: $countdown.end)
-            Button("Save", action: saveChanges)
+                .padding(.bottom, 30)
+            
+            Spacer()
         }
         .padding()
     }
 }
 
 #Preview {
-    var countdown = CountdownTimer(title: "Your New Timer")
-    return EditCountdown(countdown: countdown)
+    Text("Issues initializing preview. See commented out code")
+
+    /*
+    var container = ModelContainer(for: CountdownTimer.self)
+    return EditCountdown(countdown: CountdownTimer(title: "Yours"))
         .modelContainer(for: CountdownTimer.self, inMemory: true)
+     */
 }

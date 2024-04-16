@@ -15,6 +15,7 @@
 		F4C647592BC228C100D9A700 /* CountdownDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C647582BC228C100D9A700 /* CountdownDetail.swift */; };
 		F4C6475B2BC2317900D9A700 /* EditCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6475A2BC2317900D9A700 /* EditCountdown.swift */; };
 		F4C647602BC417DB00D9A700 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6475F2BC417DB00D9A700 /* CountdownTimer.swift */; };
+		F4E56A782BCE9A5600A0674C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E56A772BCE9A5600A0674C /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F4C647582BC228C100D9A700 /* CountdownDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownDetail.swift; sourceTree = "<group>"; };
 		F4C6475A2BC2317900D9A700 /* EditCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountdown.swift; sourceTree = "<group>"; };
 		F4C6475F2BC417DB00D9A700 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		F4E56A772BCE9A5600A0674C /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		F463418B2BC1B7130011DB7A /* The Final Countdown */ = {
 			isa = PBXGroup;
 			children = (
+				F4E56A762BCE9A4600A0674C /* Extensions */,
 				F4C6475E2BC417C400D9A700 /* Models */,
 				F4C647572BC2289E00D9A700 /* Views */,
 				F463418C2BC1B7130011DB7A /* The_Final_CountdownApp.swift */,
@@ -93,6 +96,14 @@
 				F4C6475F2BC417DB00D9A700 /* CountdownTimer.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F4E56A762BCE9A4600A0674C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4E56A772BCE9A5600A0674C /* NavigationBar.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				F4C6475B2BC2317900D9A700 /* EditCountdown.swift in Sources */,
 				F463418D2BC1B7130011DB7A /* The_Final_CountdownApp.swift in Sources */,
 				F47B93F02BCD7461005EED6B /* CountdownList.swift in Sources */,
+				F4E56A782BCE9A5600A0674C /* NavigationBar.swift in Sources */,
 				F4C647592BC228C100D9A700 /* CountdownDetail.swift in Sources */,
 				F4C647602BC417DB00D9A700 /* CountdownTimer.swift in Sources */,
 			);
